@@ -1,0 +1,305 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background: #ddeefc;
+
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+}
+
+.contenedor {
+  width: 90%;
+  max-width: 1000px;
+  padding: 40px 20px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/*--------------ESTILOS. DORSO Y REVERSO DE LA TARJETA-----------------*/
+
+.tarjeta {
+  width: 100%;
+  max-width: 550px;
+  position: relative;
+  color: #fff;
+  transition: 0.3s ease all;
+  transform: rotateY(0deg);
+  transform-style: preserve-3d;
+  backface-visibility: hidden; /*para que cuando gire la otra parte de la tarjeta se oculte*/
+  cursor: pointer;
+  z-index: 2;
+}
+
+/*--------------ESTILOS GENERALES DEL DORSO Y REVERSO-----------------*/
+.tarjeta > div {
+  padding: 30px;
+  border-radius: 15px;
+  min-height: 315px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 10px 10px 0 rgba(90, 116, 148, 0.3);
+}
+
+/*--------------ESTILOS DEL DORSO-----------------*/
+.tarjeta .dorso {
+  width: 100%;
+  background: url(../img/bg-tarjeta/bg-tarjeta-03.jpg);
+  background-size: cover;
+}
+
+/*esto para que respete el espacio aunque no este el logo de la tarjeta*/
+.dorso .logo {
+  text-align: right;
+  min-height: 50px;
+}
+
+.dorso .logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-width: 80px;
+}
+
+.dorso .chip {
+  width: 100%;
+  max-width: 50px;
+  margin-bottom: 50px;
+}
+.dorso .label {
+  font-size: 16px;
+  color: #7d8994;
+  margin-bottom: 5px;
+}
+.dorso .numero,
+.dorso .nombre,
+.dorso .expiracion {
+  color: #fff;
+  text-transform: uppercase;
+}
+.dorso .grupoFlexbox {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+/*--------------FIN ESTILOS DEL DORSO-----------------*/
+
+/*--------------ESTILOS DEL REVERSO-----------------*/
+.reverso {
+  background: url(../img/bg-tarjeta/bg-tarjeta-03.jpg);
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+}
+.reverso .barraMagnetica {
+  height: 45px;
+  background: rgb(54, 54, 54);
+  background: linear-gradient(
+    90deg,
+    rgba(54, 54, 54, 1) 0%,
+    rgba(60, 60, 60, 1) 18%,
+    rgba(50, 50, 50, 1) 72%,
+    rgba(68, 68, 68, 1) 100%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  width: 100%;
+  position: absolute;
+  top: 30px;
+  left: 0;
+}
+.reverso .datos {
+  margin-top: 60px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.reverso .datos p {
+  margin-bottom: 5px;
+}
+
+.reverso .datos #firma {
+  width: 70%;
+}
+
+.reverso .datos #ccv {
+  width: 20%;
+}
+.reverso .datos #ccv .ccv {
+  background: #fff;
+  height: 40px;
+  color: #000;
+  padding: 18px;
+  text-align: center;
+}
+.reverso .datos #firma .firma {
+  height: 40px;
+  background: repeating-linear-gradient(
+    skyblue 0,
+    skyblue 5px,
+    orange 5px,
+    orange 10px
+  );
+}
+
+.reverso .datos #firma .firma p {
+  line-height: 40px;
+  font-family: "Liu Jian Mao Cao", cursive;
+  color: #000;
+  font-size: 30px;
+  padding: 0 18px;
+  text-transform: capitalize;
+}
+
+.reverso .leyenda {
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.reverso .linkBanco {
+  font-size: 14px;
+  color: #fff;
+}
+
+/*--------------FIN ESTILOS DEL REVERSO-----------------*/
+
+/*-------------- ESTILOS DEL BOTON-----------------*/
+.contenedorBtn .btnAbrirFormulario {
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  line-height: 20px;
+  background: #2364d2;
+  color: #fff;
+  position: relative;
+  top: -25px;
+  z-index: 3;
+  border-radius: 100%;
+  box-shadow: 5px 4px 8px rgba(24, 56, 182, 0.4);
+  padding: 5px;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.contenedorBtn .btnAbrirFormulario:hover {
+  background: #1850b1;
+}
+
+.contenedorBtn .btnAbrirFormulario.abrir {
+  transform: rotate(45deg);
+}
+/*--------------FIN ESTILOS DEL BOTON-----------------*/
+
+/*--------------ESTILOS DEL FORMULARIO-----------------*/
+.formulario {
+  background: #e6e6e6;
+  width: 100%;
+  max-width: 700px;
+  padding: 150px 30px 30px 30px;
+  border-radius: 10px;
+  position: relative;
+  top: -150px;
+  z-index: 1;
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  transition: clip-path 0.3s ease-out;
+}
+
+.formulario label {
+  display: block;
+  color: #7d8994;
+  margin-bottom: 5px;
+  font-size: 17px;
+}
+
+.formulario input,
+.formulario select,
+.btnEnviar {
+  border: 2px solid #ced6e0;
+  height: 50px;
+  width: 100%;
+  padding: 5px 12px;
+  transition: 0.3s ease all;
+  border-radius: 5px;
+}
+
+.formulario input:hover,
+.formulario select:hover {
+  border: 2px solid #93bded;
+}
+
+.formulario input:focus,
+.formulario select:focus {
+  outline: rgb(4, 4, 4);
+  box-shadow: 1px 7px 10px -5px rgba(90, 116, 148, 0.3);
+}
+
+.formulario input {
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.formulario .grupoFlexbox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.formulario .expira {
+  width: 100%;
+}
+
+.formulario .ccv {
+  min-width: 100px;
+}
+
+.formulario .grupoSelect {
+  width: 100%;
+  margin-right: 15px;
+  position: relative;
+}
+.formulario select {
+  -webkit-appearance: none; /*saca las flechitas de los selects */
+}
+
+.formulario .grupoSelect i {
+  position: absolute;
+  color: #ced6e0;
+  top: 18px;
+  right: 15px;
+  transition: 0.3s ease all;
+}
+
+.formulario .grupoSelect:hover {
+  color: #93bfed;
+}
+
+.formulario .btnEnviar {
+  border: none;
+  padding: 10px;
+  font-size: 22px;
+  color: #fff;
+  background: #2364d2;
+  box-shadow: 2px 2px 10px rgba(0, 85, 212, 0.5);
+  cursor: pointer;
+}
+
+.formulario .btnEnviar:hover {
+  background: #1850d1;
+}
+
+/*--------------FIN ESTILOS DEL FORMULARIO-----------------*/
+
+/*rotacion de la tarjeta al clickear*/
+.tarjeta.girar {
+  transform: rotateY(180deg);
+}
+
+.formulario.desplazar {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}

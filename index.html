@@ -1,0 +1,139 @@
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Liu+Jian+Mao+Cao&family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/estilos.css" />
+    <title>Formulario de pago</title>
+  </head>
+  <body>
+    <!----------------------------------------------------------------------------------------->
+    <!--                                     DIV CONTENEDOR                                  -->
+    <!----------------------------------------------------------------------------------------->
+    <div class="contenedor">
+      <!----------------------------------------------------------------------------------------->
+      <!--                                  SECCION DE LA TARJETA                              -->
+      <!----------------------------------------------------------------------------------------->
+      <section class="tarjeta" id="tarjeta">
+        <div class="dorso">
+          <!--LOGO TARJETA-->
+          <div class="logo" id="logo"></div>
+          <!-- PNG CHIP -->
+          <img src="img/chip-tarjeta.png" class="chip" alt="" />
+          <!-- DATOS DE LA TARJETA -->
+          <div class="datos">
+            <div class="grupo" id="numero">
+              <p class="label">Número de tarjeta</p>
+              <p class="numero">#### #### #### ####</p>
+            </div>
+            <div class="grupoFlexbox">
+              <div class="grupo" id="nombre">
+                <p class="label">Nombre de tarjeta</p>
+                <p class="nombre">C. ARIAS</p>
+              </div>
+
+              <div class="grupo" id="vto">
+                <p class="label">Valido hasta</p>
+                <p class="expiracion">
+                  <span class="mes">MM</span> / <span class="año">AA</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- FIN DATOS DE LA TARJETA -->
+        </div>
+        <div class="reverso">
+          <div class="barraMagnetica"></div>
+          <div class="datos">
+            <div class="grupo" id="firma">
+              <p class="label">Firma</p>
+              <div class="firma"><p></p></div>
+            </div>
+            <div class="grupo" id="ccv">
+              <p class="label">CCV</p>
+              <p class="ccv"></p>
+            </div>
+          </div>
+          <p class="leyenda">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti,
+            autem!
+          </p>
+          <a href="#" class="linkBanco">www.banco.com</a>
+        </div>
+      </section>
+
+      <!----------------------------------------------------------------------------------------->
+      <!--                          SECCION BOTON QUE ABRE FORMULARIO                          -->
+      <!----------------------------------------------------------------------------------------->
+      <div class="contenedorBtn">
+        <button class="btnAbrirFormulario" id="btnAbrirFormulario">
+          <i class="fas fa-plus"></i>
+        </button>
+      </div>
+      <!----------------------------------------------------------------------------------------->
+      <!--                                  SECCION DEL FORMULARIO                             -->
+      <!----------------------------------------------------------------------------------------->
+      <form action="" id="formulario" class="formulario">
+        <div class="grupo">
+          <label for="inputNumero">Número de tarjeta</label>
+          <input
+            type="text"
+            id="inputNumero"
+            maxlength="19"
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="grupo">
+          <label for="inputNombre">Nombre</label>
+          <input
+            type="text"
+            id="inputNombre"
+            maxlength="19"
+            autocomplete="off"
+          />
+        </div>
+        <div class="grupoFlexbox">
+          <div class="grupo expira">
+            <label for="selectMes">Valido hasta:</label>
+            <div class="grupoFlexbox">
+              <div class="grupoSelect">
+                <select name="mes" id="selectMes">
+                  <option disabled selected>Mes</option>
+                </select>
+                <i class="fas fa-angle-down"></i>
+              </div>
+
+              <div class="grupoSelect">
+                <select name="año" id="selectAño">
+                  <option disabled selected>Año</option>
+                </select>
+                <i class="fas fa-angle-down"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="grupo ccv">
+            <label for="inputCCV">CCV</label>
+            <input type="text" id="inputCCV" maxlength="3" />
+          </div>
+        </div>
+        <button type="submit" class="btnEnviar">Enviar</button>
+      </form>
+
+      <!----------------------------------------------------------------------------------------->
+      <!--                               FIN SECCION DE LA TARJETA                             -->
+      <!----------------------------------------------------------------------------------------->
+    </div>
+    <script
+      src="https://kit.fontawesome.com/1cfac9386a.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
